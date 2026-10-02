@@ -95,6 +95,32 @@ class AppLocalizations {
       'noNotifications': 'You have no notifications',
       'markAsRead': 'Mark as read',
       'notificationRead': 'Notification read',
+
+      // Tasks
+      'tasks': 'Tasks',
+      'createTask': 'Create Task',
+      'editTask': 'Edit Task',
+      'taskTitle': 'Task Title',
+      'taskDescription': 'Description',
+      'priority': 'Priority',
+      'lowPriority': 'Low',
+      'mediumPriority': 'Medium',
+      'highPriority': 'High',
+      'urgentPriority': 'Urgent',
+      'todo': 'To Do',
+      'inProgress': 'In Progress',
+      'review': 'In Review',
+      'done': 'Completed',
+      'dueDate': 'Due Date',
+      'assignTo': 'Assign To',
+      'checklist': 'Checklist',
+      'addSubtask': 'Add Subtask',
+      'deleteTask': 'Delete Task',
+      'deleteTaskConfirmation': 'Are you sure you want to delete this task?',
+      'noTasks': 'No tasks found',
+      'taskCreated': 'Task created successfully',
+      'taskUpdated': 'Task updated successfully',
+      'taskDeleted': 'Task deleted successfully',
     },
     'ar': {
       // General
@@ -171,6 +197,32 @@ class AppLocalizations {
       'noNotifications': 'لا توجد إشعارات لديك',
       'markAsRead': 'تحديد كمقروء',
       'notificationRead': 'تم قراءة الإشعار',
+
+      // Tasks
+      'tasks': 'المهام',
+      'createTask': 'إنشاء مهمة',
+      'editTask': 'تعديل المهمة',
+      'taskTitle': 'عنوان المهمة',
+      'taskDescription': 'الوصف',
+      'priority': 'الأولوية',
+      'lowPriority': 'منخفضة',
+      'mediumPriority': 'متوسطة',
+      'highPriority': 'عالية',
+      'urgentPriority': 'عاجلة',
+      'todo': 'قيد الانتظار',
+      'inProgress': 'قيد التنفيذ',
+      'review': 'قيد المراجعة',
+      'done': 'مكتملة',
+      'dueDate': 'تاريخ الاستحقاق',
+      'assignTo': 'تعيين إلى',
+      'checklist': 'قائمة المهام الفرعية',
+      'addSubtask': 'إضافة مهمة فرعية',
+      'deleteTask': 'حذف المهمة',
+      'deleteTaskConfirmation': 'هل أنت متأكد من حذف هذه المهمة؟',
+      'noTasks': 'لا توجد مهام حالياً',
+      'taskCreated': 'تم إنشاء المهمة بنجاح',
+      'taskUpdated': 'تم تحديث المهمة بنجاح',
+      'taskDeleted': 'تم حذف المهمة بنجاح',
     },
   };
 
@@ -252,6 +304,32 @@ class AppLocalizations {
   String get noNotifications => translate('noNotifications');
   String get markAsRead => translate('markAsRead');
   String get notificationRead => translate('notificationRead');
+
+  // Tasks
+  String get tasks => translate('tasks');
+  String get createTask => translate('createTask');
+  String get editTask => translate('editTask');
+  String get taskTitle => translate('taskTitle');
+  String get taskDescription => translate('taskDescription');
+  String get priority => translate('priority');
+  String get lowPriority => translate('lowPriority');
+  String get mediumPriority => translate('mediumPriority');
+  String get highPriority => translate('highPriority');
+  String get urgentPriority => translate('urgentPriority');
+  String get todo => translate('todo');
+  String get inProgress => translate('inProgress');
+  String get review => translate('review');
+  String get done => translate('done');
+  String get dueDate => translate('dueDate');
+  String get assignTo => translate('assignTo');
+  String get checklist => translate('checklist');
+  String get addSubtask => translate('addSubtask');
+  String get deleteTask => translate('deleteTask');
+  String get deleteTaskConfirmation => translate('deleteTaskConfirmation');
+  String get noTasks => translate('noTasks');
+  String get taskCreated => translate('taskCreated');
+  String get taskUpdated => translate('taskUpdated');
+  String get taskDeleted => translate('taskDeleted');
 }
 
 class _AppLocalizationsDelegate

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -10,6 +10,7 @@ import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/auth/presentation/bloc/auth_event.dart';
 import 'features/notifications/presentation/bloc/notification_bloc.dart';
 import 'features/projects/presentation/bloc/projects_bloc.dart';
+import 'features/tasks/presentation/bloc/tasks_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,6 +53,7 @@ class _MyAppState extends State<MyApp> {
         BlocProvider<AuthBloc>.value(value: _authBloc),
         BlocProvider<ProjectsBloc>(create: (_) => sl<ProjectsBloc>()),
         BlocProvider<NotificationBloc>(create: (_) => sl<NotificationBloc>()),
+        BlocProvider<TasksBloc>(create: (_) => sl<TasksBloc>()),
       ],
       child: Builder(
         builder: (context) {

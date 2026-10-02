@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,6 +14,10 @@ import '../../features/projects/presentation/pages/edit_project_page.dart';
 import '../../features/projects/presentation/pages/project_details_page.dart';
 import '../../features/projects/presentation/pages/project_members_page.dart';
 import '../../features/projects/presentation/pages/projects_page.dart';
+import '../../features/tasks/domain/entities/task.dart';
+import '../../features/tasks/presentation/pages/create_task_page.dart';
+import '../../features/tasks/presentation/pages/edit_task_page.dart';
+import '../../features/tasks/presentation/pages/task_details_page.dart';
 
 class AppRouter {
   static GoRouter createRouter(AuthBloc authBloc) {
@@ -101,6 +105,29 @@ class AppRouter {
                       isOwner: extra['isOwner'] as bool? ?? false,
                     );
                   },
+                ),
+                GoRoute(
+                  path: 'tasks/create',
+                  builder: (context, state) {
+                    final projectId = state.pathParameters['projectId']!;
+                    return CreateTaskPage(projectId: projectId);
+                  },
+                ),
+                GoRoute(
+                  path: 'tasks/:taskId',
+                  builder: (context, state) {
+                    final task = state.extra as Task;
+                    return TaskDetailsPage(initialTask: task);
+                  },
+                  routes: [
+                    GoRoute(
+                      path: 'edit',
+                      builder: (context, state) {
+                        final task = state.extra as Task;
+                        return EditTaskPage(task: task);
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),

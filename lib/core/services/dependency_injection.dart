@@ -1,4 +1,4 @@
-﻿import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get_it/get_it.dart';
@@ -37,6 +37,18 @@ import '../../features/notifications/domain/usecases/mark_notification_read.dart
 import '../../features/notifications/domain/usecases/remove_fcm_token.dart';
 import '../../features/notifications/domain/usecases/save_fcm_token.dart';
 import '../../features/notifications/presentation/bloc/notification_bloc.dart';
+
+import '../../features/tasks/data/datasources/tasks_remote_datasource.dart';
+import '../../features/tasks/data/repositories/tasks_repository_impl.dart';
+import '../../features/tasks/domain/repositories/tasks_repository.dart';
+import '../../features/tasks/domain/usecases/create_task.dart';
+import '../../features/tasks/domain/usecases/delete_task.dart';
+import '../../features/tasks/domain/usecases/get_task.dart';
+import '../../features/tasks/domain/usecases/get_tasks.dart';
+import '../../features/tasks/domain/usecases/toggle_subtask.dart';
+import '../../features/tasks/domain/usecases/update_task.dart';
+import '../../features/tasks/domain/usecases/update_task_status.dart';
+import '../../features/tasks/presentation/bloc/tasks_bloc.dart';
 
 import 'notification_service.dart';
 
@@ -136,6 +148,34 @@ Future<void> setupServiceLocator() async {
       saveFcmTokenUseCase: sl(),
       getNotificationsUseCase: sl(),
       markNotificationReadUseCase: sl(),
+    ),
+  );
+
+  // ----------------------------------------------------
+  // Tasks Feature
+  // ----------------------------------------------------
+  sl.registerLazySingleton<TasksRemoteDataSource>(
+    () => TasksRemoteDataSourceImpl(firestore: sl()),
+  );
+  sl.registerLazySingleton<TasksRepository>(
+    () => TasksRepositoryImpl(remoteDataSource: sl()),
+  );
+  sl.registerLazySingleton(() => GetTasksUseCase(sl()));
+  sl.registerLazySingleton(() => GetTaskUseCase(sl()));
+  sl.registerLazySingleton(() => CreateTaskUseCase(sl()));
+  sl.registerLazySingleton(() => UpdateTaskUseCase(sl()));
+  sl.registerLazySingleton(() => UpdateTaskStatusUseCase(sl()));
+  sl.registerLazySingleton(() => ToggleSubtaskUseCase(sl()));
+  sl.registerLazySingleton(() => DeleteTaskUseCase(sl()));
+
+  sl.registerFactory(
+    () => TasksBloc(
+      getTasksUseCase: sl(),
+      createTaskUseCase: sl(),
+      updateTaskUseCase: sl(),
+      updateTaskStatusUseCase: sl(),
+      toggleSubtaskUseCase: sl(),
+      deleteTaskUseCase: sl(),
     ),
   );
 }
